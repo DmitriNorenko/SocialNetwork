@@ -9,7 +9,8 @@
 
   <ItemGroup>
     <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
+    <Folder Include="DAL\DB\" />
+    <Folder Include="DAL\Repositories\" />
   </ItemGroup>
 
 </Project>
