@@ -96,5 +96,13 @@ namespace SocialNetwork.BLL.Services
                           userEntity.favorite_movie,
                           userEntity.favorite_book);
         }
+        public void SendMessage(string message, string email)
+        {
+            if (String.IsNullOrEmpty(message)) throw new ArgumentNullException();
+            if (message.Length > 5000) throw new ArgumentNullException();
+            if (!String.IsNullOrEmpty(email)) throw new ArgumentNullException();
+            var findUserEntity = userRepository.FindByEmail(email);
+            if (findUserEntity is null) throw new UserNotFoundException();
+        }
     }
 }

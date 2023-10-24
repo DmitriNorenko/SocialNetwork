@@ -87,6 +87,18 @@ namespace SocialNetwork
 
                                                 break;
                                             }
+                                            case "3":
+                                            {
+                                                Console.WriteLine("Введите Email получателя:");
+                                                var recipient = Console.ReadLine();
+                                                Console.WriteLine("Введите сообщение:");
+                                                var message = Console.ReadLine();
+                                                 userService.SendMessage(message, recipient);
+                                                Console.ForegroundColor = ConsoleColor.Green;
+                                                Console.WriteLine("Сообщение успешно отправлено!");
+                                                Console.ForegroundColor = ConsoleColor.White;
+                                                break;
+                                            }
                                     }
                                 }
 
