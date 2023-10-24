@@ -14,11 +14,9 @@ namespace SocialNetwork.BLL.Services
     public class UserService
     {
         IUserRepository userRepository;
-        IMessageRepository messageRepository;
         public UserService()
         {
             userRepository = new UserRepository();
-            messageRepository = new MessageRepository();
         }
         public void Register(UserRegistrationData userRegistrationData)
         {
@@ -97,23 +95,6 @@ namespace SocialNetwork.BLL.Services
                           userEntity.photo,
                           userEntity.favorite_movie,
                           userEntity.favorite_book);
-        }
-        public void SendMessage(string message, string email, int Sender_id)
-        {
-            if (String.IsNullOrEmpty(message)) throw new ArgumentNullException();
-            if (message.Length > 5000) throw new ArgumentNullException();
-            if (String.IsNullOrEmpty(email)) throw new ArgumentNullException();
-            var findUserEntity = userRepository.FindByEmail(email);
-            if (findUserEntity is null) throw new UserNotFoundException();
-
-            var messageEntity = new MessageEntity()
-            {
-                id = 1,
-                sender_id = Sender_id,
-                recipient_id = 1,
-                content = message
-            };
-            messageRepository.Create(messageEntity);
         }
     }
 }
