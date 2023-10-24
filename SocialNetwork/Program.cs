@@ -87,13 +87,13 @@ namespace SocialNetwork
 
                                                 break;
                                             }
-                                            case "4":
+                                        case "4":
                                             {
                                                 Console.WriteLine("Введите Email получателя:");
                                                 var recipient = Console.ReadLine();
                                                 Console.WriteLine("Введите сообщение:");
                                                 var message = Console.ReadLine();
-                                                var Message = userService.SendMessage(message, recipient,user.Id);
+                                                userService.SendMessage(message, recipient, user.Id);
                                                 Console.ForegroundColor = ConsoleColor.Green;
                                                 Console.WriteLine("Сообщение успешно отправлено!");
                                                 Console.ForegroundColor = ConsoleColor.White;

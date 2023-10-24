@@ -98,7 +98,7 @@ namespace SocialNetwork.BLL.Services
                           userEntity.favorite_movie,
                           userEntity.favorite_book);
         }
-        public MessageEntity SendMessage(string message, string email, int Sender_id)
+        public void SendMessage(string message, string email, int Sender_id)
         {
             if (String.IsNullOrEmpty(message)) throw new ArgumentNullException();
             if (message.Length > 5000) throw new ArgumentNullException();
@@ -113,7 +113,7 @@ namespace SocialNetwork.BLL.Services
                 recipient_id = 1,
                 content = message
             };
-            return messageEntity;
+            messageRepository.Create(messageEntity);
         }
     }
 }
