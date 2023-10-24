@@ -87,13 +87,13 @@ namespace SocialNetwork
 
                                                 break;
                                             }
-                                            case "3":
+                                            case "4":
                                             {
                                                 Console.WriteLine("Введите Email получателя:");
                                                 var recipient = Console.ReadLine();
                                                 Console.WriteLine("Введите сообщение:");
                                                 var message = Console.ReadLine();
-                                                 userService.SendMessage(message, recipient);
+                                                var Message = userService.SendMessage(message, recipient,user.Id);
                                                 Console.ForegroundColor = ConsoleColor.Green;
                                                 Console.WriteLine("Сообщение успешно отправлено!");
                                                 Console.ForegroundColor = ConsoleColor.White;
@@ -114,6 +114,10 @@ namespace SocialNetwork
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Пользователь не найден!");
                                 Console.ForegroundColor = ConsoleColor.White;
+                            }
+                            catch (ArgumentNullException)
+                            {
+                                Console.WriteLine("Введите корректное значение.");
                             }
 
                             break;
