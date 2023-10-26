@@ -12,7 +12,7 @@ namespace SocialNetwork.Tests
     public class TestEmailFriend
     {
         [Test]
-        public void AddToFriend_MustReturnNullException()
+        public void AddToFriend_MustReturnException()
         {
             var friendServise = new FriendServise();
             var dataAddFriends = new DataAddFriend { RecipientEmail = "bob@mail.ru", user_id = 1};
